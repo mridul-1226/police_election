@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:maps_launcher/maps_launcher.dart';
 import 'package:police/data.dart';
 import 'package:police/main.dart';
@@ -42,7 +42,39 @@ class _CompanyState extends State<Company> {
               child: Column(
                 children: [
                   const Text(
-                    'Accomodation (Stay)',
+                    'लाईजन अधिकारी',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                  ),
+                  Container(
+                    height: 2,
+                    color: Colors.black,
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        info.stay[widget.n]['name']!,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        info.stay[widget.n]['number']!,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: mq.height * 0.1),
+            Card(
+              color: Colors.lightBlue.shade100,
+              child: Column(
+                children: [
+                  const Text(
+                    'CAPF के चिह्नित रूकने के स्थल',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                   ),
                   Container(
@@ -54,15 +86,20 @@ class _CompanyState extends State<Company> {
                       launchMap(double.parse(info.stay[widget.n]['latitude']!),
                           double.parse(info.stay[widget.n]['longitude']!));
                     },
-                    child: Text(info.stay[widget.n]['location']!,
-                        style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700)),
+                    child: Text(
+                      info.stay[widget.n]['location']!,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   )
                 ],
               ),
             ),
             SizedBox(
-              height: mq.height * 0.15,
+              height: mq.height * 0.1,
             ),
             Card(
               color: Colors.lightBlue.shade100,
@@ -94,9 +131,13 @@ class _CompanyState extends State<Company> {
                                       ['longitude']!));
                             },
                             child: Text(
-                                info.deploy[widget.n][index]['location']!,
-                                style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w700,), textAlign: TextAlign.center,),
+                              info.deploy[widget.n][index]['location']!,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
                           );
                         },
                       ),
@@ -110,15 +151,23 @@ class _CompanyState extends State<Company> {
               text: const TextSpan(
                 text: '* ',
                 style: TextStyle(color: Colors.red),
-                children: <TextSpan>[
+                children: [
                   TextSpan(
                       text: 'Note : ',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
-                  TextSpan(text: 'Click on the places to view them on map', style: TextStyle(color: Colors.black)),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black)),
+                  TextSpan(
+                    text:
+                        'स्थानों को मानचित्र पर देखने के लिए उन पर क्लिक करें',
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ],
               ),
+              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
           ],
         ),
       ),
