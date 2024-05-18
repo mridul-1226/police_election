@@ -43,7 +43,10 @@ class _CompanyState extends State<Company> {
                 children: [
                   const Text(
                     'लाईजन अधिकारी',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.brown),
                   ),
                   Container(
                     height: 2,
@@ -54,7 +57,9 @@ class _CompanyState extends State<Company> {
                       Text(
                         info.stay[widget.n]['name']!,
                         style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                        ),
                         textAlign: TextAlign.center,
                       ),
                       Text(
