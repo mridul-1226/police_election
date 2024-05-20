@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 import 'package:police/data.dart';
 import 'package:police/main.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Company extends StatefulWidget {
   const Company({super.key, required this.n});
@@ -21,6 +22,7 @@ class _CompanyState extends State<Company> {
 
   @override
   Widget build(BuildContext context) {
+    Uri dial;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -62,11 +64,19 @@ class _CompanyState extends State<Company> {
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      Text(
-                        info.stay[widget.n]['number']!,
-                        style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700),
-                        textAlign: TextAlign.center,
+                      GestureDetector(
+                        onTap: () async {
+                          dial = Uri(
+                              scheme: 'tel',
+                              path: info.stay[widget.n]['number']!);
+                          await launchUrl(dial);
+                        },
+                        child: Text(
+                          info.stay[widget.n]['number']!,
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w700),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ],
                   )
