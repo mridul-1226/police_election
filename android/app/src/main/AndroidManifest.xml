@@ -3,7 +3,7 @@
 <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-        android:label="police"
+        android:label="CAPF SBR"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
