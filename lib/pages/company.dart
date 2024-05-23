@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:maps_launcher/maps_launcher.dart';
-import 'package:police/data.dart';
+import 'package:police/datas/data.dart';
 import 'package:police/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
