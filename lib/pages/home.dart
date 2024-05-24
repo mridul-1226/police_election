@@ -69,7 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ListView.builder(
               itemCount: 17,
               itemBuilder: (BuildContext context, int index) {
-                final adjustedIndex = index + 1;
                 return Card(
                   color: Colors.lightBlue.shade200,
                   child: ListTile(
