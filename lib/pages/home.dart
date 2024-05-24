@@ -28,6 +28,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
+          SizedBox(
+            height: mq.height * 0.01,
+          ),
           Container(
             width: mq.width,
             color: const Color.fromARGB(255, 89, 139, 237),
@@ -58,6 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
+          ),
+          SizedBox(
+            height: mq.height * 0.01,
           ),
           Expanded(
             child: ListView.builder(
