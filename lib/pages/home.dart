@@ -23,7 +23,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text(
           'Company List',
           style: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
         ),
       ),
       body: Column(
@@ -33,12 +36,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Container(
             width: mq.width,
+            constraints: const BoxConstraints(maxHeight: 100),
             color: const Color.fromARGB(255, 89, 139, 237),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
                   'नोडल अधिकारी सीएपीएफ व्यवस्थापन',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
                 const Text('श्री कालू सिंह अपर पुलिस अधीक्षक',
                     style:
@@ -74,11 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: ListTile(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Company(
-                                    n: index,
-                                  )));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Company(
+                            n: index,
+                          ),
+                        ),
+                      );
                     },
                     leading: const Icon(Icons.group),
                     title: Text(
@@ -91,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
+          SizedBox(height: mq.height * 0.01,),
         ],
       ),
     );
