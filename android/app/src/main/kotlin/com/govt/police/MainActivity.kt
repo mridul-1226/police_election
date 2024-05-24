@@ -1,4 +1,4 @@
-package com.example.police
+package com.govt.police
 
 import io.flutter.embedding.android.FlutterActivity
 

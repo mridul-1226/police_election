@@ -7,6 +7,7 @@ class Info {
       'longitude': '83.05702',
       'name': 'उ0नि0 अरविन्द गुप्ता',
       'number': '8840968858',
+      'company': 'BSF 435 A/100'
     },
     {
       //2
@@ -15,6 +16,7 @@ class Info {
       'longitude': '83.066968',
       'name': 'उ0नि0 रामसिंहासन शर्मा',
       'number': '9415356650',
+      'company': 'SSB 711 B/51'
     },
     {
       //3
@@ -23,6 +25,7 @@ class Info {
       'longitude': '83.05186',
       'name': 'उ0नि0 विमलेश सिंह',
       'number': '9450870198',
+      'company': 'BSF 486 A/36'
     },
     {
       //4
@@ -31,6 +34,7 @@ class Info {
       'longitude': '82.778026',
       'name': 'उ0नि0 शिवकुमार सिंह ',
       'number': '9140242184',
+      'company': 'ASSAM SAP SAP-978 SAP-978'
     },
     {
       //5
@@ -39,6 +43,7 @@ class Info {
       'longitude': '82.879186',
       'name': 'उ0नि0 रामजन्म यादव',
       'number': '8115588502',
+      'company': 'ASSAM SAP SAP-986 SAP-986'
     },
     {
       //6
@@ -47,6 +52,7 @@ class Info {
       'longitude': '83.249825',
       'name': 'उ0नि0 फूलबदन यादव',
       'number': '9415448053',
+      'company': 'UP PAC 47 /G 47/G',
     },
     {
       //7
@@ -55,6 +61,7 @@ class Info {
       'longitude': '83.325',
       'name': 'उ0नि0 रामनयन यादव',
       'number': '8470889112',
+      'company': 'ASSAM SAP SAP-967 SAP-967'
     },
     {
       //8
@@ -63,6 +70,7 @@ class Info {
       'longitude': '83.0417636',
       'name': 'उ0नि0 श्री राजेश कुमार सिंह',
       'number': '6306153959',
+      'company': 'SSB 711 B/48'
     },
     {
       //9
@@ -71,6 +79,7 @@ class Info {
       'longitude': '83.000098',
       'name': 'उ0नि0 सरीमन सोनकर',
       'number': '6394882261',
+      'company': 'SSB 711 C/51'
     },
     {
       //10
@@ -79,6 +88,7 @@ class Info {
       'longitude': '83.345981',
       'name': 'उ0नि0 रविन्द्र प्रसाद',
       'number': '9452223400',
+      'company': 'ASSAM SAP SAP-987 SAP-987'
     },
     {
       //11
@@ -87,6 +97,7 @@ class Info {
       'longitude': '83.331938',
       'name': 'उ0नि0 धर्मदेव यादव',
       'number': '9451117831',
+      'company': 'ASSAM SAP SAP-966 SAP-966'
     },
     {
       //12
@@ -95,6 +106,7 @@ class Info {
       'longitude': '83.034588',
       'name': 'उ0नि0 कमलनयन दूबे',
       'number': '7906424298',
+      'company': 'SSB 711 D/47'
     },
     {
       //13
@@ -103,6 +115,7 @@ class Info {
       'longitude': '82.761003',
       'name': 'उ0नि0 मायाशंकर सिंह',
       'number': 'उ0नि0 मायाशंकर सिंह',
+      'company': 'CISF Tac-1 571 571-C338'
     },
     {
       //14
@@ -111,6 +124,7 @@ class Info {
       'longitude': '83.232169',
       'name': 'उ0नि0 रामअवध यादव',
       'number': '9450545741',
+      'company': 'CRPF 316 F/95'
     },
     {
       //15
@@ -119,6 +133,7 @@ class Info {
       'longitude': '83.015602',
       'name': 'उ0नि0 अभय नाथ सिंह यादव',
       'number': '7525805062',
+      'company': 'CRPF 316 E/93'
     },
     {
       //16
@@ -127,6 +142,7 @@ class Info {
       'longitude': '83.23602',
       'name': 'उ0नि0 संजीव कुमार राय',
       'number': '9005646126',
+      'company': 'CRPF 349 CRPF Adhoc 32'
     },
     {
       //17
@@ -135,6 +151,7 @@ class Info {
       'longitude': '83.058932',
       'name': 'उ0नि0 वीरेन्द्र कुमार',
       'number': '7080316020',
+      'company': 'CRPF 349  Adhoc GC HNR'
     },
   ];
 
