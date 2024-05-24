@@ -28,19 +28,34 @@ class _CompanyState extends State<Company> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 68, 120, 225),
-        title: Text(
-          'COMPANY ${widget.n + 1}',
-          style: const TextStyle(
+        title: const Text(
+          'COMPANY',
+          style: TextStyle(
               fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
+          textAlign: TextAlign.center,
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: mq.width * 0.1),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Expanded(child: SizedBox()),
-            Card(
+      body: Column(
+        children: [
+          Container(
+            height: mq.height * 0.1,
+            width: mq.width,
+            color: Colors.blue,
+            child: Center(
+              child: Text(
+                '${info.stay[widget.n]['company']}',
+                style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          const Expanded(child: SizedBox()),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: mq.width * 0.1),
+            child: Card(
               color: Colors.lightBlue.shade100,
               child: Column(
                 children: [
@@ -88,8 +103,11 @@ class _CompanyState extends State<Company> {
                 ],
               ),
             ),
-            SizedBox(height: mq.height * 0.1),
-            Card(
+          ),
+          SizedBox(height: mq.height * 0.1),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: mq.width * 0.1),
+            child: Card(
               color: Colors.lightBlue.shade100,
               child: Column(
                 children: [
@@ -134,91 +152,91 @@ class _CompanyState extends State<Company> {
                 ],
               ),
             ),
-            // SizedBox(
-            //   height: mq.height * 0.1,
-            // ),
-            // Card(
-            //   color: Colors.lightBlue.shade100,
-            //   child: SingleChildScrollView(
-            //     child: Column(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       mainAxisSize: MainAxisSize.min,
-            //       children: [
-            //         const Text(
-            //           'Duty (Deployment)',
-            //           style: TextStyle(
-            //               fontSize: 20,
-            //               fontWeight: FontWeight.w700,
-            //               color: Colors.brown),
-            //         ),
-            //         Container(
-            //           height: 2,
-            //           color: Colors.black,
-            //         ),
-            //         SizedBox(
-            //           height: mq.height * 0.2,
-            //           child: ListView.builder(
-            //             itemCount: info.deploy[widget.n].length,
-            //             itemBuilder: (context, index) {
-            //               return Row(
-            //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //                 children: [
-            //                   SizedBox(
-            //                     width: mq.width * 0.02,
-            //                   ),
-            //                   Text(
-            //                     info.deploy[widget.n][index]['location']!,
-            //                     style: const TextStyle(
-            //                       fontSize: 18,
-            //                       fontWeight: FontWeight.w700,
-            //                     ),
-            //                     textAlign: TextAlign.center,
-            //                   ),
-            //                   IconButton(
-            //                       onPressed: () {
-            //                         launchMap(
-            //                             double.parse(info.deploy[widget.n]
-            //                                 [index]['latitude']!),
-            //                             double.parse(info.deploy[widget.n]
-            //                                 [index]['longitude']!));
-            //                       },
-            //                       icon: const Icon(
-            //                         Icons.location_on,
-            //                         color: Color.fromARGB(255, 0, 140, 255),
-            //                       ))
-            //                 ],
-            //               );
-            //             },
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            const Expanded(child: SizedBox()),
-            RichText(
-              text: const TextSpan(
-                text: '* ',
-                style: TextStyle(color: Colors.red),
-                children: [
-                  TextSpan(
-                      text: 'Note : ',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black)),
-                  TextSpan(
-                    text:
-                        'स्थानों को मानचित्र पर देखने के लिए Location पर क्लिक करें',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ],
-              ),
-              textAlign: TextAlign.center,
+          ),
+          // SizedBox(
+          //   height: mq.height * 0.1,
+          // ),
+          // Card(
+          //   color: Colors.lightBlue.shade100,
+          //   child: SingleChildScrollView(
+          //     child: Column(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       mainAxisSize: MainAxisSize.min,
+          //       children: [
+          //         const Text(
+          //           'Duty (Deployment)',
+          //           style: TextStyle(
+          //               fontSize: 20,
+          //               fontWeight: FontWeight.w700,
+          //               color: Colors.brown),
+          //         ),
+          //         Container(
+          //           height: 2,
+          //           color: Colors.black,
+          //         ),
+          //         SizedBox(
+          //           height: mq.height * 0.2,
+          //           child: ListView.builder(
+          //             itemCount: info.deploy[widget.n].length,
+          //             itemBuilder: (context, index) {
+          //               return Row(
+          //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //                 children: [
+          //                   SizedBox(
+          //                     width: mq.width * 0.02,
+          //                   ),
+          //                   Text(
+          //                     info.deploy[widget.n][index]['location']!,
+          //                     style: const TextStyle(
+          //                       fontSize: 18,
+          //                       fontWeight: FontWeight.w700,
+          //                     ),
+          //                     textAlign: TextAlign.center,
+          //                   ),
+          //                   IconButton(
+          //                       onPressed: () {
+          //                         launchMap(
+          //                             double.parse(info.deploy[widget.n]
+          //                                 [index]['latitude']!),
+          //                             double.parse(info.deploy[widget.n]
+          //                                 [index]['longitude']!));
+          //                       },
+          //                       icon: const Icon(
+          //                         Icons.location_on,
+          //                         color: Color.fromARGB(255, 0, 140, 255),
+          //                       ))
+          //                 ],
+          //               );
+          //             },
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
+          const Expanded(child: SizedBox()),
+          RichText(
+            text: const TextSpan(
+              text: '* ',
+              style: TextStyle(color: Colors.red),
+              children: [
+                TextSpan(
+                    text: 'Note : ',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.black)),
+                TextSpan(
+                  text:
+                      'स्थानों को मानचित्र पर देखने के लिए Location पर क्लिक करें',
+                  style: TextStyle(color: Colors.black),
+                ),
+              ],
             ),
-            const SizedBox(
-              height: 10,
-            ),
-          ],
-        ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+        ],
       ),
     );
   }
