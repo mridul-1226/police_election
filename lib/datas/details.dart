@@ -398,5 +398,5 @@ List<List<Map<String, dynamic>>> detail = [
       'SHO/SO Name': '',
       'SHO/SO Contact': '',
     },
-  ]
+  ],
 ];
