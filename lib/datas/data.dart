@@ -114,7 +114,7 @@ class Info {
       'latitude': '24.207099',
       'longitude': '82.761003',
       'name': 'उ0नि0 मायाशंकर सिंह',
-      'number': 'उ0नि0 मायाशंकर सिंह',
+      'number': '9450794191',
       'company': 'CISF Tac-1 571 571-C338'
     },
     {
