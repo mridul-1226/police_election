@@ -31,50 +31,47 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: mq.height * 0.01,
-          ),
-          Container(
-            width: mq.width,
-            constraints: const BoxConstraints(maxHeight: 100),
-            color: const Color.fromARGB(255, 89, 139, 237),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text(
-                  'नोडल अधिकारी सीएपीएफ व्यवस्थापन',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
-                const Text('श्री कालू सिंह अपर पुलिस अधीक्षक',
-                    style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                GestureDetector(
-                  onTap: () async {
-                    var dial = Uri(scheme: 'tel', path: '9454401110');
-                    await launchUrl(dial);
-                  },
-                  child: const Text(
-                    '9454401110',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 1, 81, 255),
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      decoration:
-                          TextDecoration.underline, // This adds the underline
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: mq.height * 0.01,
-          ),
           Expanded(
             child: ListView.builder(
-              itemCount: 17,
+              itemCount: 18,
               itemBuilder: (BuildContext context, int index) {
+                if (index == 0) {
+                  return Container(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    width: mq.width,
+                    color: const Color.fromARGB(255, 89, 139, 237),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          'नोडल अधिकारी सीएपीएफ व्यवस्थापन',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        ),
+                        const Text('श्री कालू सिंह अपर पुलिस अधीक्षक',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
+                        GestureDetector(
+                          onTap: () async {
+                            var dial = Uri(scheme: 'tel', path: '9454401110');
+                            await launchUrl(dial);
+                          },
+                          child: const Text(
+                            '9454401110',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 1, 81, 255),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              decoration: TextDecoration
+                                  .underline, // This adds the underline
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }
                 return Card(
                   color: Colors.lightBlue.shade200,
                   child: ListTile(
@@ -83,14 +80,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => Company(
-                            n: index,
+                            n: index - 1,
                           ),
                         ),
                       );
                     },
                     leading: const Icon(Icons.group),
                     title: Text(
-                      'CAPF कम्पनी ${info.stay[index]['company']}',
+                      'CAPF कम्पनी ${info.stay[index - 1]['company']}',
                       style: const TextStyle(fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
@@ -99,7 +96,6 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
-          SizedBox(height: mq.height * 0.01,),
         ],
       ),
     );
