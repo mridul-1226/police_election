@@ -245,7 +245,9 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:maps_launcher/maps_launcher.dart';
+import 'package:police/pages/detailpage.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:police/main.dart';
 
 class Company extends StatefulWidget {
   const Company({super.key, required this.n});
@@ -277,7 +279,7 @@ class _CompanyState extends State<Company> {
 
       return companyDataList;
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 
@@ -314,8 +316,8 @@ class _CompanyState extends State<Company> {
             return Column(
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.1,
-                  width: MediaQuery.of(context).size.width,
+                  height: mq.height * 0.1,
+                  width: mq.width,
                   color: Colors.blue,
                   child: Center(
                     child: Text(
@@ -330,8 +332,7 @@ class _CompanyState extends State<Company> {
                 ),
                 const Expanded(child: SizedBox()),
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.1),
+                  padding: EdgeInsets.symmetric(horizontal: mq.width * 0.1),
                   child: Card(
                     color: Colors.lightBlue.shade100,
                     child: Column(
@@ -379,10 +380,9 @@ class _CompanyState extends State<Company> {
                     ),
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                SizedBox(height: mq.height * 0.1),
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.1),
+                  padding: EdgeInsets.symmetric(horizontal: mq.width * 0.1),
                   child: Card(
                     color: Colors.lightBlue.shade100,
                     child: Column(
@@ -402,7 +402,7 @@ class _CompanyState extends State<Company> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.02,
+                              width: mq.width * 0.02,
                             ),
                             Expanded(
                               child: Text(
@@ -429,71 +429,116 @@ class _CompanyState extends State<Company> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
+                  height: mq.height * 0.1,
                 ),
                 Visibility(
                   visible: data['isShow'] as bool,
-                  child: Card(
-                    color: Colors.lightBlue.shade100,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Text(
-                            'Duty (Deployment)',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.brown),
-                          ),
-                          Container(
-                            height: 2,
-                            color: Colors.black,
-                          ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.2,
-                            child: ListView.builder(
-                              itemCount: data['deploy'].length,
-                              itemBuilder: (context, index) {
-                                final deployData = data['deploy'][index];
-                                return Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.02,
-                                    ),
-                                    Expanded(
-                                      child: Text(
-                                        deployData['location'],
-                                        style: const TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                    IconButton(
-                                        onPressed: () {
-                                          launchMap(
-                                              double.parse(
-                                                  deployData['latitude']),
-                                              double.parse(
-                                                  deployData['longitude']));
-                                        },
-                                        icon: const Icon(
-                                          Icons.location_on,
-                                          color:
-                                              Color.fromARGB(255, 0, 140, 255),
-                                        ))
-                                  ],
-                                );
-                              },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: mq.width * 0.1),
+                    child: Card(
+                      color: Colors.lightBlue.shade100,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Text(
+                              'Duty (Deployment)',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.brown),
                             ),
-                          ),
-                        ],
+                            Container(
+                              height: 2,
+                              color: Colors.black,
+                            ),
+                            SizedBox(
+                              height: mq.height * 0.2,
+                              child: ListView.builder(
+                                itemCount: data['deploy'].length,
+                                itemBuilder: (context, index) {
+                                  final deployData = data['deploy'][index];
+                                  return Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      SizedBox(
+                                        width: mq.width * 0.02,
+                                      ),
+                                      Expanded(
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            deployData['isCenter']
+                                                ? Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          CenterDetails(
+                                                        location: deployData[
+                                                            'location'],
+                                                        psname: deployData[
+                                                            'PSName'],
+                                                        psnum:
+                                                            deployData['PSNum'],
+                                                        sname: deployData[
+                                                            'SMName'],
+                                                        snum: deployData[
+                                                            'SMContact'],
+                                                        zone:
+                                                            deployData['zone'],
+                                                        zonenum: deployData[
+                                                            'ZMContact'],
+                                                        zonename: deployData[
+                                                            'ZMName'],
+                                                        sector: deployData[
+                                                            'sector'],
+                                                      ),
+                                                    ),
+                                                  )
+                                                : Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          DutyPointDeatils(
+                                                        location: deployData[
+                                                            'location'],
+                                                        psname: deployData[
+                                                            'PSName'],
+                                                      ),
+                                                    ),
+                                                  );
+                                          },
+                                          child: Text(
+                                            deployData['location'],
+                                            style: const TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                      IconButton(
+                                          onPressed: () {
+                                            launchMap(
+                                                double.parse(
+                                                    deployData['latitude']),
+                                                double.parse(
+                                                    deployData['longitude']));
+                                          },
+                                          icon: const Icon(
+                                            Icons.location_on,
+                                            color: Color.fromARGB(
+                                                255, 0, 140, 255),
+                                          ))
+                                    ],
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

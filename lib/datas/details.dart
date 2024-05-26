@@ -12,8 +12,6 @@ List<List<Map<String, dynamic>>> detail = [
       'ZMName':
           'श्री गौरी शंकर गुप्ता, अधिशासी अभियन्ता, लघु सिचाई खण्ड, सोनभद्र।',
       'ZMContact': '9918758777',
-      'SHO/SO Name': '',
-      'SHO/SO Contact': '',
     },
     {
       'CenterName': 'कम्‍पोजिट विद्यालय सुकृत क0 नं0 १ . 2 .3',

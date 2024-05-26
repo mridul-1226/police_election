@@ -108,6 +108,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:police/main.dart';
 import 'package:police/pages/company.dart';
+import 'package:police/pages/infopage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -144,6 +145,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const InfoPage()));
+              },
+              icon: const Icon(
+                Icons.info_sharp,
+                color: Colors.white,
+              ))
+        ],
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 68, 120, 225),
         title: const Text(
